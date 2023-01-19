@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Home {% endblock %}
+{% block description %} {{setting.description}} {% endblock %}
+{% block keywords %}{{setting.keywords}}{% endblock %}
+
+
+{% block sidebar %}
+{% include 'home/sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Contact</li>
+        </ul>
+    </div>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <h2 class="py-5 text-center fs-2">Contact Us</h2>
+        <br>
+        <!-- row -->
+        <div class="row contact ">
+            <div class="col-md-6 map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223964362!2d90.27919536726905!3d23.780887453986505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1673369584178!5m2!1sen!2sbd"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-6">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-danger">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+{% endblock %}

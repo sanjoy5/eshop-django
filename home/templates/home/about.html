@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}About {% endblock %}
+{% block description %} {{setting.description}} {% endblock %}
+{% block keywords %}{{setting.keywords}}{% endblock %}
+
+
+{% block sidebar %}
+{% include 'home/sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">About</li>
+        </ul>
+    </div>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-6">
+                <img class="fluid" src="../../../static/img/best-about-us-pages.png" alt="">
+            </div>
+            <div class="col-md-6 about">
+                <h1>About Us</h1>
+                <p class="about-text">E-SHOP is the online shopping destination for Bangladesh offering a completely
+                    hassle-free shopping
+                    experience through secure and trusted gateways. We offer you trendy and reliable shopping with all
+                    your favorite brands and more. Now shopping is easier, faster and always joyous. We help you make
+                    the right choice here.
+
+                    We provide our customers with a memorable online shopping experience. Our dedicated Etokichu quality
+                    assurance team works round the clock to personally make sure the right packages reach on time. You
+                    can choose whatever you like. We deliver it right at your address across Bangladesh. Our services
+                    are at your doorsteps all the time. Get the best products with the best online shopping experience
+                    every time. You will enjoy online shopping here!</p>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+{% endblock %}
