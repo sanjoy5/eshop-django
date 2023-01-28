@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import *
 from .forms import *
 import json
+from django.contrib import messages
 
 # Create your views here.
 
@@ -13,6 +14,16 @@ def category_products(request,id,slug):
 
     context = {'products':products,'category':category,'category_name':category_name}
     return render(request,'product/category_products.html',context)
+
+
+def product_details(request,id,slug):
+    category = Category.objects.all()
+    product = Product.objects.get(pk=id)
+    comment = Comment.objects.filter(product_id=id,status=True)
+  
+    images = Images.objects.filter(product_id=id)
+    context = {'product':product,'category':category,'images':images,'comment':comment}
+    return render(request,'product/product_details.html',context)
 
 
 def search(request):
@@ -53,3 +64,22 @@ def search_auto(request):
     return HttpResponse(data, mimetype)
 
     
+
+def addcomment(request,id):
+    url = request.META.get('HTTP_REFERER')
+    form = CommentForm()
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            data = Comment()
+            data.subject = form.cleaned_data['subject']
+            data.comment = form.cleaned_data['comment']
+            data.rate = form.cleaned_data['rate']
+            data.ip = request.META.get('REMOTE_ADDR')
+            data.product_id = id
+            data.user_id = request.user.id
+            data.save()
+            messages.success(request," Thank you for your Review.")
+            return redirect(url)
+
+    return redirect(url)

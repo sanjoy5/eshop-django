@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # app
     'home.apps.HomeConfig',
     'product.apps.ProductConfig',
+    'order.apps.OrderConfig',
 ]
 
 

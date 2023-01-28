@@ -72,3 +72,4 @@ class ContactForm(ModelForm):
             'email'   : TextInput(attrs={'class': 'input'}),
             'message' : Textarea(attrs={'class': 'input','rows':'5'}),
         }
+        
