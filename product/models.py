@@ -64,12 +64,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-    ## method to create a fake table field in read only mode
+    
     def image_tag(self):
-        if self.image.url is not None:
-            return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
-        else:
-            return ""
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
 
 class Images(models.Model):
     product= models.ForeignKey(Product,on_delete=models.CASCADE)

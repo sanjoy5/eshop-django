@@ -9,7 +9,6 @@ from .models import *
 def addToCart(request,id):
     url = request.META.get('HTTP_REFERER') 
     current_user = request.user 
-    product= Product.objects.get(pk=id)
 
     checkinproduct = ShopCart.objects.filter(product_id=id) # Check product in shopcart
     if checkinproduct:
