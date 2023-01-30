@@ -109,7 +109,7 @@
                             class="text-uppercase">Signup</a>
                         {% endif %}
                         <ul class="custom-menu">
-                            <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                            <li><a href="/user"><i class="fa fa-user-o"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
                             <li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>
                             <li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
@@ -125,7 +125,7 @@
                         <a href="/shopcart/">
                             <div class="header-btns-icon">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span class="qty">3</span>
+                                <span class="qty">{{total_items}}</span>
                             </div>
                             <strong class="text-uppercase">My Cart:</strong>
                             <br>
