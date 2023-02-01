@@ -15,4 +15,6 @@ urlpatterns = [
     path('user/orders_product',user_order_product,name="user_order_product"),
     path('user/order_product_detail/<int:id>/<int:oid>/',
          user_order_product_detail, name='user_order_product_detail'),
+    path('user/comments',user_comments,name="user_comments"),
+    path('user/deletecomment/<int:id>/',user_deletecomment,name="user_deletecomment"),
 ]

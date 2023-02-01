@@ -164,3 +164,23 @@ def user_order_product_detail(request, id, oid):
         'category':category
     }
     return render(request, 'user/user_order_detail.html', context)
+
+
+
+def user_comments(request):
+    category = Category.objects.all()
+    current_user = request.user
+    comments = Comment.objects.filter(user_id=current_user.id)
+    context = {
+        'comments': comments,
+        'category':category
+    }
+    return render(request, 'user/user_comments.html', context)
+
+
+@login_required(login_url='/login')
+def user_deletecomment(request,id):
+    current_user = request.user
+    Comment.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request, 'Comment deleted..')
+    return redirect('/user/comments')

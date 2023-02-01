@@ -22,7 +22,13 @@ def product_details(request,id,slug):
     comment = Comment.objects.filter(product_id=id,status=True)
   
     images = Images.objects.filter(product_id=id)
-    context = {'product':product,'category':category,'images':images,'comment':comment}
+    context = {
+        'product':product,
+        'category':category,
+        'images':images,
+        'comment':comment,
+   
+        }
     return render(request,'product/product_details.html',context)
 
 

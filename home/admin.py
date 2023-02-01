@@ -17,6 +17,12 @@ class ContactMessageAdmin(admin.ModelAdmin):
 class SliderImageAdmin(admin.ModelAdmin):
     list_display = ['title','offer']
 
+
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ['question','answer','ordernumber','status']
+    list_filter = ['status']
+
 admin.site.register(Setting,SettingAdmin)
 admin.site.register(ContactMessage,ContactMessageAdmin)
 admin.site.register(SliderImage,SliderImageAdmin)
+admin.site.register(FAQ,FAQAdmin)

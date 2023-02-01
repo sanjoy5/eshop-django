@@ -64,13 +64,14 @@
                         <h3 class="product-price">tk {{product.price}}</h3>
                         <div>
                             <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o empty"></i>
+                                <i class="fa fa-star{% if product.avaregereview < 2%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if product.avaregereview < 3%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if product.avaregereview < 4%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if product.avaregereview < 1%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if product.avaregereview < 5%}-o empty{% endif%}"></i>
+                                {{ product.avaregereview |stringformat:".2f"}}
                             </div>
-                            <a href="#">3 Review(s) / Add Review</a>
+                            <a href="#tab1"> {{ product.countreview}} Review(s) / Add Review</a>
                         </div>
                         <p><strong>Availability:</strong> In Stock</p>
                         <p><strong>Brand:</strong> E-SHOP</p>
